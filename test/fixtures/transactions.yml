@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  t_type: MyString
+  user: one
+  amount: MyString
+  transaction_made_by: MyString
+
+two:
+  t_type: MyString
+  user: two
+  amount: MyString
+  transaction_made_by: MyString

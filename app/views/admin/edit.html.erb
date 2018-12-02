@@ -1,0 +1,29 @@
+<div class="row">
+	<%= form_for @user, as: :user, url: user_update_by_admin_path(@user), method: :patch do |f| %>
+
+		<div class="col-lg-4">
+			<%= render partial: 'common/user_fields', locals: {f: f}%>
+		</div>
+		<div class="col-lg-2"></div>
+		<div class="col-lg-4">
+			<div class="form-group">
+				<%= f.label :status%>
+				<div>
+					<%= f.check_box :is_active%>
+				</div>
+			</div>
+			<div class="form-group">
+				<%= f.label :email%>
+				<p class="user-info">
+					<%= @user.email%>
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<%= f.submit 'Update Profile', class: 'btn btn-success' %>
+				<%= link_to "Home", root_path, class: 'btn btn-warning' %>
+			</div>
+		</div>
+	<% end %>
+</div>
