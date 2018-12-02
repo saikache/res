@@ -54,10 +54,10 @@
           <%= yield %>
         </div>
         <div class="col-lg-3">
-          <p class="user-info">Available Amount: <strong> <%= current_user.amount %> </strong></p>
           <div class="well sidebar-nav">
             <div id="user_nav">
               <% if user_signed_in? %>
+                <p class="user-info">Available Amount: <strong> <%= current_user.try(:amount) %> </strong></p>
                 Signed in as <%= current_user.email %>. Not you?
                 <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
               <% else %>

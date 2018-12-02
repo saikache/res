@@ -1,3 +1,13 @@
+User(Account Holder) sign up verification mail
+
+lock user if failure attempts  more than 3
+
+Enable Disable user by admin (email:  admin@admin.com ,  password => password)
+
+
+###
+--------------------
+
 You need to design a banking system with following minimum specifications - 
 
 A bank system which manages users’ account information. A customer of this bank can invoke the following operations 
