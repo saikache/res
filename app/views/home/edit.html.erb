@@ -2,20 +2,7 @@
 	<%= form_for @user, as: :user, url: home_update_path, method: :patch do |f| %>
 
 		<div class="col-lg-4">
-			<div class="form-group">
-				<%= f.label :first_name%>
-				<%= f.text_field :first_name, class: "form-control" %>
-			</div>
-
-			<div class="form-group">
-				<%= f.label :last_name%>
-				<%= f.text_field :last_name, class: "form-control" %>
-			</div>
-
-			<div class="form-group">
-				<%= f.label :phone_number%>
-				<%= f.number_field :ph, class: "form-control" %>
-			</div>
+			<%= render partial: 'common/user_fields', locals: {f: f}%>
 		</div>
 		<div class="col-lg-2"></div>
 		<div class="col-lg-4">
@@ -33,6 +20,12 @@
 				<%= f.label :amount%>
 				<p class="user-info">
 					<%= @user.amount%>
+				</p>
+			</div>
+			<div class="form-group">
+				<%= f.label :card%>
+				<p class="user-info">
+					<%= @user.card%>
 				</p>
 			</div>
 

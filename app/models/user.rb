@@ -7,9 +7,12 @@ class User < ApplicationRecord
 
   has_many :transactions
 
+  validates_uniqueness_of :card, :unless => proc{|obj| obj.card.blank? }
+  validates :card, :presence => true, :unless => "pin.blank?"
+  validates :pin, :presence => true, :if => "!card.blank?"
 
   def is_admin?
-  	email == 'admin@admin.com'
+    email == 'admin@admin.com'
   end
 
 end

@@ -8,6 +8,7 @@
 		        <th>Lastname</th>
 		        <th>Status</th>
 		        <th>Email</th>
+		        <th>Card No</th>
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -17,6 +18,7 @@
 							<td><%= user.last_name%></td>
 							<td><%= is_active(user.is_active) %></td>
 							<td><%= user.email%></td>
+							<td><%= user.card%></td>
 
 			        <td><%= link_to 'Edit', user_edit_path(user), class: "btn btn-warning" %></td>
 			        <td><%= link_to 'Transactions', user_transactions_path(user), class: "btn btn-info" %></td>

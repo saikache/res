@@ -4,6 +4,7 @@ lock user if failure attempts  more than 3
 
 Enable Disable user by admin (email:  admin@admin.com ,  password => password)
 
+Validation on Card PIN for user
 
 ###
 --------------------
