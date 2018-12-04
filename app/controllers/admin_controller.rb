@@ -12,7 +12,21 @@ class AdminController < ApplicationController
   end
 
   def transactions
-  	
+    @user = User.find_by(id: params['id'])
+    filename = "#{@user.email.split('@')[0]}.xls"
+    respond_to do |format|
+      format.html
+      format.xls { headers["Content-Disposition"] = "attachment; filename=\"#{filename}\"" }
+    end
+  end
+
+  def all_transactions
+    @transactions = Transaction.includes(:user).paginate(:page => params[:page], :per_page => params[:per_page] || 2)
+    respond_to do |format|
+      format.html
+      format.xls { headers["Content-Disposition"] = "attachment; filename=allTransactions.xls" }
+    end
+
   end
 
 

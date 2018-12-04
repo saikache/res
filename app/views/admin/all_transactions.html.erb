@@ -1,0 +1,41 @@
+<h1>Transactions</h1>
+<%if @transactions.size > 0%>
+  <%= link_to "Export Data to spreadsheet", all_transactions_path(format: "xls", per_page: params[:per_page]), class: "btn btn-info" %>
+
+  <br>
+  <div class="margin-5">
+    <%= link_to "Display 2 records Per Page",  all_transactions_path(:per_page =>2), class: "btn btn-warning"%>
+    <%= link_to "Display 5 records Per Page",  all_transactions_path(:per_page =>5), class: "btn btn-danger"%>
+    <%= link_to "Display 10 records Per Page",  all_transactions_path(:per_page =>10), class: "btn btn-success"%>
+  </div>
+
+
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>Account Holder Name</th>
+        <th>Email</th>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @transactions.each do |transaction| %>
+        <tr>
+          <td><%= transaction.user.full_name %></td>
+          <td><%= transaction.user.email %></td>
+          <td><%= transaction.t_type %></td>
+          <td><%= transaction.amount %></td>
+          <td><%= transaction.created_on %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<%else%>
+  <hr>
+  <h5>No transactions avilable !</h5>
+<%end%>
+
+<%= will_paginate @transactions %>

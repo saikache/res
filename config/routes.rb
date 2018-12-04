@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'admin', to: 'admin#index'
   get "admin/:id/edit" => "admin#edit", as: "user_edit"
   get "admin/:id/transactions" => "admin#transactions", as: "user_transactions"
+  get "admin/transactions" => "admin#all_transactions", as: "all_transactions"
   patch 'admin/:id/update' => 'admin#update', as: 'user_update_by_admin'
 
   # get 'transactions/deposit'

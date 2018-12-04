@@ -1,1 +1,41 @@
-<h4>Transactions</h4>
+<h1>Transactions</h1>
+<%if @user.transactions.size > 0%>
+  <%= link_to "Export Data to spreadsheet", user_transactions_path(format: "xls"), class: "btn btn-info" %>
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Card No.</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @user.full_name %></td>
+        <td><%= @user.card %></td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @user.transactions.each do |transaction| %>
+        <tr>
+          <td><%= transaction.t_type %></td>
+          <td><%= transaction.amount %></td>
+          <td><%= transaction.created_on %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<%else%>
+  <hr>
+  <h5>No transactions avilable !</h5>
+<%end%>

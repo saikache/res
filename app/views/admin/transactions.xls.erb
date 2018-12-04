@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Transaction Type</Data></Cell>
+        <Cell><Data ss:Type="String">Amount</Data></Cell>
+        <Cell><Data ss:Type="String">Transaction Date</Data></Cell>
+      </Row>
+    <% @user.transactions.each do |transaction| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= transaction.t_type %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= transaction.amount %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= transaction.created_on %></Data></Cell>
+      </Row>
+    <% end %>
+    	<Row></Row>
+    	<Row>TRANSACTION BELONGS TO</Row>
+    	<Row>
+        <Cell><Data ss:Type="String"><%= @user.full_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= @user.email %></Data></Cell>
+        <Cell><Data ss:Type="String">Card: <%= @user.card %></Data></Cell>
+    	</Row>
+    </Table>
+  </Worksheet>
+</Workbook>

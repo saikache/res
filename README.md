@@ -6,6 +6,12 @@ Enable Disable user by admin (email:  admin@admin.com ,  password => password)
 
 Validation on Card PIN for user
 
+Transactions done
+
+Download all transactions
+
+Download individual transactions
+
 ###
 --------------------
 
