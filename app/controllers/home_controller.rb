@@ -7,11 +7,9 @@ class HomeController < ApplicationController
     redirect_to(admin_path, notice: "Welcome to admin panel") if current_user && current_user.is_admin?
   end
 
-
   def edit
     @user = current_user
   end
-
 
   def update
     respond_to do |format|
@@ -24,13 +22,9 @@ class HomeController < ApplicationController
     end
   end
 
-
-
-
   private
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :dob, :ph)
   end
-
 end

@@ -10,9 +10,9 @@
 User.create(email: "admin@admin.com", confirmed_at: Time.now, password: 'password', is_active: true)
 
 
-User.create(email: "sai@yahoo.com", confirmed_at: Time.now, password: 'password', is_active: true, first_name: 'sai')
-User.create(email: "avi@gmail.com", confirmed_at: Time.now, password: 'password', is_active: true, first_name: 'avinash')
-User.create(email: "ram@gmail.com", confirmed_at: Time.now, password: 'password', is_active: true, first_name: 'ram')
+User.create(email: "sai@yahoo.com", confirmed_at: Time.now, password: 'password', is_active: true, first_name: 'sai', pin: '111', card: '1111', )
+User.create(email: "avi@gmail.com", confirmed_at: Time.now, password: 'password', is_active: true, first_name: 'avinash', pin: '111', card: '2222')
+User.create(email: "ram@gmail.com", confirmed_at: Time.now, password: 'password', is_active: true, first_name: 'ram', pin: '111', card: '3333')
 
 
 

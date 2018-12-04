@@ -21,3 +21,12 @@
 
 //= require action_cable
 
+function closeMe(element) {
+  $(element).closest('.alert-danger').fadeOut(300, function() {
+    $(this).remove();
+  });
+}
+
+function showPinIfRequired(argument) {
+  (argument.value == "Withdraw") ? $(".pin-column").removeClass("hide") : $(".pin-column").addClass("hide");
+}

@@ -38,9 +38,13 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <%if current_user && current_user.is_admin? %>
-            <li><%= link_to "Managements", admin_path  %></li>
+              <li><%= link_to "Managements", admin_path  %></li>
+              <li><%= link_to "Transactions", user_transactions_path(current_user)  %></li>
+            <%elsif current_user %>
+              <li><%= link_to "Profile", home_edit_path  %></li>
+              <li><%= link_to "New Transaction", new_transaction_path %></li>
+              <li><%= link_to "My Transaction", transactions_path %></li>
             <%end%>
-            <li><%= link_to "Profile", home_edit_path  %></li>
           </ul>
         </div>
       </div>

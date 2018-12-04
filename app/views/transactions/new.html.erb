@@ -1,0 +1,47 @@
+<%= form_for(@transaction) do |f| %>
+  <% if @transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+      <ul>
+      <% @transaction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-lg-5">
+      <div class="form-group">
+        <%= f.label :transaction_type %>
+        <%= f.select :t_type, options_for_select(Transaction::TRANSACTION_TYPE, @transaction.t_type), { prompt: 'Select Transaction Type' }, {class: "form-control"} %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :amount %>
+        <%= f.number_field :amount, class: 'form-control', min: 1, placeholder: "Amount" %>
+      </div>
+
+      <div class="form-group pin-column">
+        <%= f.label :pin %>
+        <%= f.number_field :pin, class: 'form-control', min: 4, placeholder: "PIN" %>
+        <span class="hint">Optional for deposit</span>
+      </div>
+
+      <div class="actions">
+        <%= f.submit :class => 'btn btn-success' %>
+      </div>
+    </div>
+    
+    <div class="col-lg-5">
+      <div class="form-group">
+        <%= f.label :card %>
+        <p class="user-info-disable">
+          <%= current_user.card.present? ? current_user.card : "You don't have a ATM card"%>
+        </p>
+      </div>
+      
+    </div>
+  </div>
+
+<% end %>
