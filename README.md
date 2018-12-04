@@ -1,3 +1,5 @@
+run seed file for basic users data
+
 User(Account Holder) sign up verification mail
 
 lock user if failure attempts  more than 3
